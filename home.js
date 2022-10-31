@@ -62,6 +62,11 @@ const canWeDeliver = (zipCode) => {
 }
 console.log(canWeDeliver(85205))
 
+
+//trying with higher order method combined with ternary...feel like I got close but it's not quite there yet
+// const canWeDeliver3 = (zipCode, zipArray) => zipArray.forEach((el) => (el === zipCode) ? "You're in our delivery zone!" : "Sorry, we can't deliver to that address!") 
+// console.log(canWeDeliver3(85205,deliveryAreaZipCodes))
+
 /* 
     Problem 2 Continued
 
@@ -118,7 +123,8 @@ const deals = [
 
 //CODE HERE
 let {title} = deals[0]
-title.replace('15','10')
+deals[0].title = title.replace('15','10')
+// console.log(deals)
 
 
 
@@ -139,4 +145,6 @@ title.replace('15','10')
 
 //CODE HERE
 let {desc} = deals[1]
-console.log(desc.replace('March','April').trim())
+deals[1].desc = desc.replace('March','April').trim()
+console.log(deals)
+

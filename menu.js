@@ -60,8 +60,12 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-const secondTag = Object.keys(pizza)
-console.log(secondTag[1])
+//misinterpreted the ask...I thought you meant the properties when you said tags...made it too complex below
+// const secondTag = Object.keys(pizza)
+// console.log(secondTag[1])
+
+//here is what I would have done had I understood that you wanted the object property tags' second value.
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -98,15 +102,50 @@ console.log(category)
 */
 
 //CODE HERE
-const foodArr = [
-    {price: 20},
-    {category: 'entree'},
-    {popularity: 9},
-    {rating: 8},
-    {tags: ['crispy','thin','expensive','excellent','delicious']}
-]
+//made individual objects in foodArray. Misunderstood again
+// const foodArr = [
+//     {price: 20},
+//     {category: 'entree'},
+//     {popularity: 9},
+//     {rating: 8},
+//     {tags: ['crispy','thin','expensive','excellent','delicious']}
+// ]
 
-console.log(foodArr)
+const foodArr = [
+    {
+    name: 'Pasta',
+    price: 20,
+    category: 'entree',
+    popularity: 9,
+    rating: 7.3,
+    tags: ['italian','delicious','pasta','adult']
+    },
+    {
+    name: 'Kids Pizza',
+    price: 12,
+    category: 'entree',
+    popularity: 5,
+    rating: 6,
+    tags: ['italian','kids','simple','cheese']
+    },
+{
+    name: 'Breadsticks',
+    price: 8,
+    category: 'appetizer',
+    popularity: 7,
+    rating: 6,
+    tags: ['italian','appetizer','garlic','yummy']
+    },
+    {
+    name: 'Soup',
+    price: 15,
+    category: 'entree',
+    popularity: 9,
+    rating: 7.3,
+    tags: ['italian','delicious','foreign','soup']
+    }
+]
+// console.log(foodArr)
 
 
 //////////////////PROBLEM 4////////////////////
@@ -124,7 +163,7 @@ console.log(foodArr)
 //CODE HERE
 
 const filteredFood = foodArr.filter(tag => tag.price)
-console.log(filteredFood)
+// console.log(filteredFood)
 
 
 
@@ -168,18 +207,59 @@ console.log(filteredFood)
 */
 
 //CODE HERE
+//tried a clean run but decided to try a switch statement for fun. Didn't quite work it out
 const filterByProperty = (property,number,type) => {
-    let filteredArray = []
-    foodArr.filter(type => {
-        if(type === 'above'){
-            filteredArray.push(foodArr.property > number)
-            return foodArr.property > number
-        }else {
-            return foodArr.property < number
+    const foodFilter = foodArr.filter((food) => {
+        switch (type){
+            case 'above':
+                food[property] > number
+                break;
+            case 'below':
+                food[property] < number
+                break;
+            default:
+                "Please enter 'above' or 'below' for the type parameter"
+
         }
-})
-console.log(filteredArray)
+
+    })
+    return foodFilter
 }
+
+
+
+
+
+
+
+
+
+// //code presented in class. Felt close to the solution but not quite there. Need more study on this particular problem.
+// const filterByProperty = (property, number, type) => {
+//     const foodFilter = foodArr.filter((food) => {
+//         if(type === 'above'){
+//             return food[property] > number
+//         }else{
+//             return food[property] < number
+//         }
+//     })
+//     return foodFilter
+// }
+
+
+//my first attempts
+// const filterByProperty = (property,number,type) => {
+//     let filteredArray = []
+//     foodArr.filter(type => {
+//         if(type === 'above'){
+//             filteredArray.push(foodArr.property > number)
+//             return foodArr.property > number
+//         }else {
+//             return foodArr.property < number
+//         }
+// })
+// console.log(filteredArray)
+// }
 
 
 
@@ -191,4 +271,4 @@ console.log(filteredArray)
 */
 
 //CODE HERE
-filterByProperty()
+console.log(filterByProperty('popularity',8,'below'))
